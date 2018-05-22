@@ -1,0 +1,37 @@
+/* Main */
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/* Materialize Changes */
+
+.brand-logo {
+    margin-left: 15px;
+}
+
+/* Website Classes */
+
+.main-image {
+    height: 350px;
+}
+
+.center {
+    text-align: center;
+}
+
+.subheader {
+    margin-bottom: 50px;
+}
+
+.song-text {
+    font-size: 12.5px;
+}
+
+.term-title {
+    padding-bottom: 10px;
+}
+
+.artist-cover {
+    object-fit: cover;
+}
