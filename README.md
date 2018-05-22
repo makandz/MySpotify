@@ -22,6 +22,12 @@ $_GLOBAL = array(
 ?>
 ```
 
+The website also uses [Jwilsson's PHP Spotify API Library](https://github.com/jwilsson/spotify-web-api-php), you'll also need to install it using [Composer](https://getcomposer.org/) with the command below:
+
+```
+composer require jwilsson/spotify-web-api-php
+```
+
 Upon getting that done you're all set to simply login and it should do it's work, enjoy
 
 ## Screenshots
