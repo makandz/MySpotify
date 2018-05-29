@@ -26,6 +26,9 @@ body {
 
 .song-text {
     font-size: 12.5px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .term-title {
