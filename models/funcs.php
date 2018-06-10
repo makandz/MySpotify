@@ -2,7 +2,7 @@
 
 GLOBAL $Spotify_API;
 
-function parseTopTracks($type, $limit = 30) {
+function parseTopTracks($type, $limit = 50) {
     GLOBAL $Spotify_API;
     $result = $Spotify_API->getMyTop('tracks', array('limit' => $limit, 'time_range' => $type, 'offset' => 0));
     $export = array();
