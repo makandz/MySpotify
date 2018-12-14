@@ -1,84 +1,36 @@
 <?php
-    $_PAGE = array("title" => "Spotify Stats");
+    $Page = [
+        "title" => "Spotify Stats for Everyone! - mySpotify"
+    ];
+
     require_once("models/SpotifyStats.php");
     require_once("models/include/header.php");
 ?>
 
-<div class="section white">
-    <div class="container">
-        <h2 class="header center">What's Playing?</h2>
-        <h4 class="header center subheader">A place to see what you've been playing.</h4>
-        <?php if ($_USER['valid']) { ?>
+<div class="text-center">
+    <h1 class="display-2 mt-5">Music Speaks</h1>
+    <h2 class="mt-1">What have you been listening to?</h2>
+</div>
+
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-5">
             <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Top Tracks</div>
-                    <div class="row">
-                        <p class="term-title"><b>Short Term (Past 4 Weeks)</b></p>
-                        <?php 
-                            foreach (parseTopTracks("short_term") as $track)
-                                echoTrackPreview($track);
-                        ?>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <p class="term-title"><b>Medium Term (Past 6 Months)</b></p>
-                        <?php 
-                            foreach (parseTopTracks("medium_term") as $track)
-                                echoTrackPreview($track);
-                        ?>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <p class="term-title"><b>Long Term (Past 2 Years)</b></p>
-                        <?php 
-                            foreach (parseTopTracks("long_term") as $track)
-                                echoTrackPreview($track);
-                        ?>
-                    </div>
+                <div class="card-body">
+                    <h4 class="card-title"><a>Login with Spotify</a></h4>
+                    <p class="card-text">Sign in with your Spotify account to view statistics for your statistics, your login token is not stored on any server.</p>
+                    <a href="#" class="btn btn-primary"><i class="fab fa-spotify"></i> Login with Spotify</a>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-title">Top Artists</div>
-                    <div class="row">
-                        <p class="term-title"><b>Short Term (Past 4 Weeks)</b></p>
-                        <?php 
-                            foreach (parseTopArtists("short_term") as $artist)
-                                echoArtistPreview($artist);
-                        ?>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <p class="term-title"><b>Medium Term (Past 6 Months)</b></p>
-                        <?php 
-                            foreach (parseTopArtists("medium_term") as $artist)
-                                echoArtistPreview($artist);
-                        ?>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <p class="term-title"><b>Long Term (Past 2 Years)</b></p>
-                        <?php 
-                            foreach (parseTopArtists("long_term") as $artist)
-                                echoArtistPreview($artist);
-                        ?>
-                    </div>
-                </div>
-            </div>
-        <?php } else { ?>
-            <div class="container">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="card-title">Spotify Access</div>
-                        <p>To get your stats, we need access to your Spotify token. This token is saved as a cookie on the computer and is never shared or sent to a server, it will be deleted and you'll be required to authenticate again if your browser cookies get deleted.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="auth.php">Connect with Spotify</a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+        </div>
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
