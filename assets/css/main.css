@@ -4,37 +4,49 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-/* Materialize Changes */
+@media (min-width: 576px) {
+    .container.wide {
+        max-width: 540px;
+    }
+}
 
-.brand-logo {
-    margin-left: 15px;
+@media (min-width: 768px) {
+    .container.wide {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container.wide {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container.wide {
+        max-width: 1750px;
+    }
 }
 
 /* Website Classes */
 
-.main-image {
-    height: 350px;
-}
-
-.center {
-    text-align: center;
-}
-
-.subheader {
-    margin-bottom: 50px;
-}
-
-.song-text {
-    font-size: 12.5px;
+.song-title {
+    font-size: 16.5px;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
+    margin-bottom: 4px;
+}
+
+.song-artist {
+    margin-top: 0px;
 }
 
 .term-title {
     padding-bottom: 10px;
 }
 
-.artist-cover {
+.cover {
     object-fit: cover;
+    height: 112.3px;
 }

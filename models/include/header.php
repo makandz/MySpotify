@@ -32,7 +32,7 @@
         </li>
         </ul>
         <span class="navbar-text white-text">
-            Guest
+            <?php echo $User['username'] ?>
         </span>
     </div>
 </nav>
