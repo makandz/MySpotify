@@ -16,7 +16,7 @@ function getTopArtist($type, $limit = 30) {
     $result = $Spotify_API->getMyTop('artists', array('limit' => $limit, 'time_range' => $type, 'offset' => 0));
     $export = array();
     foreach ($result->items as $queue)
-        $export[] = array('name' => $queue->name, 'link' => $queue->external_urls->spotify, 'image' => $queue->images[0]->url, 'genre' => $queue->genres[0]);
+        $export[] = array('name' => $queue->name, 'link' => $queue->external_urls->spotify, 'image' => $queue->images[0]->url, 'followers' => number_format($queue->followers->total));
     return $export;
 }
 

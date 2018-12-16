@@ -10,12 +10,12 @@
 ?>
 
 <div class="text-center">
-    <h1 class="display-3 mt-5">Time to jam!</h1>
-    <h2 class="mt-1">So what's good this week? <i class="fas fa-music"></i></h2>
+    <h1 class="display-3 mt-5 bold">Time to jam!</h1>
+    <h2 class="mt-1">What's good this week? <i class="fas fa-music"></i></h2>
 </div>
 
 <div class="mt-5 pl-5 pr-5 container wide">
-    <h4 class="mb-4">Weekly Songs</h4>
+    <h4 class="mb-4">Weekly Tracks</h4>
     <div class="row">
         <?php foreach (getTopSongs("short_term", 6) as $a) { ?>
             <div class="col-2">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title song-title"><?php echo $a['name'] ?></h4>
-                        <p class="card-text song-artist"><?php echo $a['artist'] ?></p>
+                        <p class="card-text song-sub"><?php echo $a['artist'] ?></p>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="card-body">
                         <h4 class="card-title song-title"><?php echo $a['name'] ?></h4>
-                        <p class="card-text song-artist"><?php echo $a['genre'] ?></p>
+                        <p class="card-text song-sub"><?php echo $a['followers'] ?> Followers</p>
                     </div>
                 </div>
             </div>
@@ -57,10 +57,6 @@
     </div>
     <p class="float-right"><a href="#">View More & History <i class="ml-1 fas fa-arrow-right"></i></a></p>
 </div>
-
-<footer class="page-footer font-small black mt-5">
-    <div class="footer-copyright text-center py-3">Made by <a href="https://makan.bz">Makan</a> - Find this on <a href="https://github.com/MastaCoder/mySpotify" class="ml-1"><i class="fab fa-github"></i></a></div>
-</footer>
 
 <?php } else { ?>
 
@@ -85,11 +81,4 @@
 
 <?php } ?>
 
-<!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
+<?php require_once("models/include/footer.php"); ?>

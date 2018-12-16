@@ -21,14 +21,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarOptions">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+        <li class="nav-item">
+            <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Tracks</a>
+            <a class="nav-link" href="tracks.php">Tracks</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Artists</a>
+            <a class="nav-link" href="artists.php">Artists</a>
         </li>
         </ul>
         <span class="navbar-text white-text">
