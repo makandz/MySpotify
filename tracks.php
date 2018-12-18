@@ -22,7 +22,7 @@
                 $i++; ?>
                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
-                        <div class="view overlay">
+                        <div class="view overlay zoom">
                             <img class=<?php echo "'card-img-top cover"; echo ($i > 6) ? "-songs'" : "'"; ?> src=<?php echo "'".$a['image']."'" ?>>
                             <a href=<?php echo "'".$a['link']."'" ?>>
                                 <div class="mask rgba-white-slight"></div>
@@ -47,7 +47,7 @@
                 $i++; ?>
                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
-                        <div class="view overlay">
+                        <div class="view overlay zoom">
                             <img class=<?php echo "'card-img-top cover"; echo ($i > 6) ? "-songs'" : "'"; ?> src=<?php echo "'".$a['image']."'" ?>>
                             <a href=<?php echo "'".$a['link']."'" ?>>
                                 <div class="mask rgba-white-slight"></div>
@@ -72,7 +72,7 @@
                 $i++; ?>
                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
-                        <div class="view overlay">
+                        <div class="view overlay zoom">
                             <img class=<?php echo "'card-img-top cover"; echo ($i > 6) ? "-songs'" : "'"; ?> src=<?php echo "'".$a['image']."'" ?>>
                             <a href=<?php echo "'".$a['link']."'" ?>>
                                 <div class="mask rgba-white-slight"></div>

@@ -20,7 +20,7 @@
         <?php foreach (getTopSongs("short_term", 6) as $a) { ?>
             <div class="col-2">
                 <div class="card mb-3">
-                    <div class="view overlay">
+                    <div class="view overlay zoom">
                         <img class="card-img-top cover" src=<?php echo "'".$a['image']."'" ?>>
                         <a href=<?php echo "'".$a['link']."'" ?>>
                             <div class="mask rgba-white-slight"></div>
@@ -41,7 +41,7 @@
         <?php foreach (getTopArtist("short_term", 6) as $a) { ?>
             <div class="col-2">
                 <div class="card mb-3">
-                    <div class="view overlay">
+                    <div class="view overlay zoom">
                         <img class="card-img-top cover" src=<?php echo "'".$a['image']."'" ?>>
                         <a href=<?php echo "'".$a['link']."'" ?>>
                             <div class="mask rgba-white-slight"></div>

@@ -79,3 +79,7 @@ body {
 .bold {
     font-weight: 900;
 }
+
+.zoom:hover span:not(:hover) {
+    height: 140px;
+}
