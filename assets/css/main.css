@@ -1,40 +1,81 @@
 /* Main */
 
-body {
-    font-family: 'Lato', sans-serif;
+html {
+    height: 100%;
+    box-sizing: border-box;
 }
 
-/* Materialize Changes */
 
-.brand-logo {
-    margin-left: 15px;
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+  
+body {
+    position: relative;
+    /* margin: 0; */
+    padding-bottom: 6rem;
+    min-height: 100%;
+}
+  
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #efefef;
+    text-align: center;
+}
+
+@media (min-width: 576px) {
+    .container.wide {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container.wide {
+        max-width: 1100px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container.wide {
+        max-width: 1400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container.wide {
+        max-width: 1750px;
+    }
 }
 
 /* Website Classes */
 
-.main-image {
-    height: 350px;
-}
-
-.center {
-    text-align: center;
-}
-
-.subheader {
-    margin-bottom: 50px;
-}
-
-.song-text {
-    font-size: 12.5px;
+.song-title {
+    font-size: 16.5px;
     width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 4px;
+}
+
+.song-sub {
+    margin-top: 0px;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.term-title {
-    padding-bottom: 10px;
+.cover {
+    object-fit: cover;
+    height: 140px;
 }
 
-.artist-cover {
+.cover-songs {
     object-fit: cover;
+    height: 20px;
+}
+
+.bold {
+    font-weight: 900;
 }

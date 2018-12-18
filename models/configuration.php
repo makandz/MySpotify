@@ -3,7 +3,7 @@
 $_GLOBAL = array(
     'client' => "",
     'secret' => "",
-    'redirect' => "http://localhost/"
+    'redirect' => ""
 )
 
 ?>
