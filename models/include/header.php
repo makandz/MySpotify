@@ -32,7 +32,11 @@
         </li>
         </ul>
         <span class="navbar-text white-text">
-            <?php echo $User['username'] ?>
+            <?php 
+            echo $User['username']; ?>
+            <?php if ($User['valid']) { ?>
+                <a href='logout.php' class='ml-2'><i class='fas fa-sign-out-alt'></i></a> 
+            <?php } ?>
         </span>
     </div>
 </nav>

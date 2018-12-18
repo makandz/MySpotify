@@ -10,8 +10,8 @@
 ?>
 
 <div class="text-center">
-    <h1 class="display-3 mt-5 bold">Time to jam!</h1>
-    <h2 class="mt-1">What's good this week? <i class="fas fa-music"></i></h2>
+    <h1 class="display-4 mt-5 bold">Time to jam!</h1>
+    <h3 class="mt-1">What's good this week? <i class="fas fa-music"></i></h3>
 </div>
 
 <div class="mt-5 pl-5 pr-5 container wide">
@@ -34,7 +34,7 @@
             </div>
         <?php } ?>
     </div>
-    <p class="float-right"><a href="#">View More & History <i class="ml-1 fas fa-arrow-right"></i></a></p>
+    <p class="float-right"><a href="tracks.php">View More & History <i class="ml-1 fas fa-arrow-right"></i></a></p>
 
     <h4 class="mb-4 mt-4">Weekly Artists</h4>
     <div class="row">
@@ -55,14 +55,14 @@
             </div>
         <?php } ?>
     </div>
-    <p class="float-right"><a href="#">View More & History <i class="ml-1 fas fa-arrow-right"></i></a></p>
+    <p class="float-right"><a href="artists.php">View More & History <i class="ml-1 fas fa-arrow-right"></i></a></p>
 </div>
 
 <?php } else { ?>
 
 <div class="text-center">
-    <h1 class="display-2 mt-5">Music Speaks</h1>
-    <h2 class="mt-1">What have you been listening to?</h2>
+    <h1 class="display-4 mt-5 bold">Music Speaks</h1>
+    <h3 class="mt-1">What have you been listening to?</h3>
 </div>
 
 <div class="container mt-5">

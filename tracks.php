@@ -10,7 +10,7 @@
 ?>
 
 <div class="text-center">
-    <h1 class="display-3 mt-5 bold">Top Tracks</h1>
+    <h1 class="display-4 mt-5 bold">Top Tracks</h1>
 </div>
 
 <div class="mt-5 pl-5 pr-5 container wide">
@@ -20,9 +20,8 @@
             $i = 0;
             foreach (getTopSongs("short_term", 48) as $a) { 
                 $i++; ?>
-                <div class="col-2">
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
-                        
                         <div class="view overlay">
                             <img class=<?php echo "'card-img-top cover"; echo ($i > 6) ? "-songs'" : "'"; ?> src=<?php echo "'".$a['image']."'" ?>>
                             <a href=<?php echo "'".$a['link']."'" ?>>
@@ -46,9 +45,8 @@
             $i = 0;
             foreach (getTopSongs("medium_term", 48) as $a) { 
                 $i++; ?>
-                <div class="col-2">
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
-                        
                         <div class="view overlay">
                             <img class=<?php echo "'card-img-top cover"; echo ($i > 6) ? "-songs'" : "'"; ?> src=<?php echo "'".$a['image']."'" ?>>
                             <a href=<?php echo "'".$a['link']."'" ?>>
@@ -72,9 +70,8 @@
             $i = 0;
             foreach (getTopSongs("long_term", 48) as $a) { 
                 $i++; ?>
-                <div class="col-2">
+                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
-                        
                         <div class="view overlay">
                             <img class=<?php echo "'card-img-top cover"; echo ($i > 6) ? "-songs'" : "'"; ?> src=<?php echo "'".$a['image']."'" ?>>
                             <a href=<?php echo "'".$a['link']."'" ?>>
