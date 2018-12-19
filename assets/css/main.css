@@ -80,6 +80,6 @@ body {
     font-weight: 900;
 }
 
-.zoom:hover span:not(:hover) {
+.zoom:hover img:not(:hover) {
     height: 140px;
 }
