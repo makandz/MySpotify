@@ -31,4 +31,6 @@ composer require jwilsson/spotify-web-api-php
 Upon getting that done you're all set to simply login and it should do it's work, enjoy
 
 ## Screenshots
+![image](https://makan.bz/shr/1546294954.jpg)
 ![image](https://makan.bz/shr/1546294865.png)
+![image](https://makan.bz/shr/1546294938.png)
