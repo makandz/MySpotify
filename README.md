@@ -2,7 +2,7 @@
 Over the past few weeks I've been listening to some music, and was interested in which music I've listened to the most. I checked out Spotify's API and noticed there is a way the information, so I went ahead and worked on a program to get the stats for my account and list them out in the most elegant way possible.
 
 ## Live Preview
-You can see a live preview of the website at https://server2.mastacoder.com/mySpotify.
+You can see a live preview of the website at https://makan.bz/mySpotify.
 
 ## What does this do?
 It prompts whoever that is visiting the website to authenticate using their Spotify account. Upon them logging into their account a token is sent to the website and saved as a cookie on the users computer. The token allows the website to request information about the users top songs and artists in a period of time, and the stats are printed on a page with images and links to visit the pages.
