@@ -70,8 +70,8 @@
         <div class="col-5">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title"><a>Login with Spotify</a></h4>
-                    <p class="card-text">Sign in with your Spotify account to view statistics for your statistics, your login token is not stored on any server.</p>
+                    <h4 class="card-title"><a>Let's Jump In!</a></h4>
+                    <p class="card-text">Signing in will allow you to view statistics about the music and artists you listen to on Spotify. Your token is stored locally and is not saved on any server, feel free to take a look at the code in the <a href="https://github.com/MastaCoder/mySpotify">GitHub Repo.</a></p>
                     <a href="auth.php" class="btn btn-primary"><i class="fab fa-spotify"></i> Login with Spotify</a>
                 </div>
             </div>
