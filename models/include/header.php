@@ -1,6 +1,8 @@
 <html>
 <head>
     <title><?php echo $Page['title'] ?></title>
+    <meta content=<?php echo "'" . $Page['title'] . "'" ?> property="og:title">
+    <meta content="A place to view your Spotify stats." property="og:description">
     <!-- Favicon -->
     <link rel="icon" href="assets/img/favicon.ico">
     <!-- Font Awesome -->
