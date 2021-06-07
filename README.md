@@ -1,36 +1,34 @@
-# mySpotify - Your Spotify Stats
-Over the past few weeks I've been listening to some music, and was interested in which music I've listened to the most. I checked out Spotify's API and noticed there is a way the information, so I went ahead and worked on a program to get the stats for my account and list them out in the most elegant way possible.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Live Preview
-You can see a live preview of the website at https://mySpotify.pw.
+## Getting Started
 
-## What does this do?
-It prompts whoever that is visiting the website to authenticate using their Spotify account. Upon them logging into their account a token is sent to the website and saved as a cookie on the users computer. The token allows the website to request information about the users top songs and artists in a period of time, and the stats are printed on a page with images and links to visit the pages.
+First, run the development server:
 
-## How do I get it running?
-The first step is to head over to the [Spotify Dashboard](https://beta.developer.spotify.com/dashboard/) where you can create a new app. You're then given a client and secret token. You can add those including the URL of your website inside of [models/configuration.php](https://github.com/MastaCoder/mySpotify/blob/master/models/configuration.php). So an example of how the file will look like is below:
-
-```php
-<?php
-
-$_GLOBAL = array(
-    'client' => "37c9b2d96x0d47e3b14vef163020zxf9",
-    'secret' => "c6a5c0f2122x4b1cab83b6af0de42311",
-    'redirect' => "http://localhost/mySpotify/auth.php"
-)
-
-?>
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-The website also uses [Jwilsson's PHP Spotify API Library](https://github.com/jwilsson/spotify-web-api-php), you'll also need to install it using [Composer](https://getcomposer.org/) with the command below:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```
-composer require jwilsson/spotify-web-api-php
-```
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-Upon getting that done you're all set to simply login and it should do it's work, enjoy
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-## Screenshots
-![image](https://makan.bz/shr/1546294954.jpg)
-![image](https://makan.bz/shr/1546294865.png)
-![image](https://makan.bz/shr/1546294938.png)
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
