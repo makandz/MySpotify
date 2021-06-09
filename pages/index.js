@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 import 'tailwindcss/tailwind.css'
 import Navbar from '../components/navbar/Navbar'
+import Link from 'next/link'
 
 export default function Home() {
   useEffect(() => {
@@ -20,12 +21,19 @@ export default function Home() {
       </div>
 
       <div className="text-center mt-5">
-        <button class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
-          Sign in via Spotify
-        </button>
+        <Link href="/auth" passHref>
+          <button className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
+            Sign in via Spotify
+          </button>
+        </Link>
       </div>
 
-      <div class="w-100 mt-8">
+      <div className="text-center text-sm text-gray-600 mt-2">
+        <p>Your privacy is important, learn more&nbsp;
+          <a href="#" className="text-blue-600 hover:text-blue-800 visited:text-purple-600">here</a>.</p>
+      </div>
+
+      <div className="w-100 mt-8">
         <img 
           src="https://myspotify.pw/assets/img/preview.png"
           alt="showcase"

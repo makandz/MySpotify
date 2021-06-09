@@ -1,5 +1,4 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
@@ -10,10 +9,18 @@ const navigation = [
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
 export default function Navbar() {
+  const [userPicture, setUserPicture] = useState('https://cdn.mkn.cx/myspotify/dev/profile.png'); // default profile photo
+
+  useEffect(() => {
+    let picture = localStorage.getItem("ms-user-profilepic");
+    if (picture)
+      setUserPicture(picture);
+  }, []);
+
   return (
     <Disclosure as="nav" className="bg-black">
       {({ open }) => (
@@ -65,7 +72,7 @@ export default function Navbar() {
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
-                            src="https://cdn.mkn.cx/myspotify/dev/profile.png"
+                            src={userPicture}
                             alt="Person Profile"
                           />
                         </Menu.Button>

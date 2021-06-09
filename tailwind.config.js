@@ -3,7 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      'display': ['"Gothic A1"', 'sans-serif'],
+      'display': ['Manrope', 'sans-serif'],
       'body': ['Roboto', 'sans-serif']
     },
     extend: {},
