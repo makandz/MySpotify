@@ -1,7 +1,7 @@
 export default function OtherLoadingCard() {
   return (
     <div className="animate-pulse">
-      <div class="w-100 grid grid-cols-12">
+      <div className="w-100 grid grid-cols-12">
         <div className="col-span-3">
           <div className="bg-gray-400 h-24 w-full rounded-lg"></div>
         </div>

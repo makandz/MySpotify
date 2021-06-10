@@ -1,6 +1,6 @@
 export default function OtherTrackCard(props) {
   return (
-    <div class="w-100 grid grid-cols-12">
+    <div className="w-100 grid grid-cols-12">
       <div className="col-span-3">
         <img src={props.songData.image} className="rounded-lg shadow-lg" />
       </div>

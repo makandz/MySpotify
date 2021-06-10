@@ -6,7 +6,13 @@ module.exports = {
       'display': ['Manrope', 'sans-serif'],
       'body': ['Roboto', 'sans-serif']
     },
-    extend: {},
+    extend: {
+      translate: {
+        double: "200%",
+        triple: "300%",
+        quad: "400%"
+      }
+    },
   },
   variants: {
     extend: {},
