@@ -1,7 +1,7 @@
 import SpotifyWebApi from "spotify-web-api-node"
 import config from "../../config";
 
-export default async (req, res) => {
+export default async function tracksAPI(req, res) {
   let spotifyAPI = new SpotifyWebApi({
     clientId: config.clientID,
     clientSecret: config.clientSecret,
@@ -10,8 +10,9 @@ export default async (req, res) => {
 
   spotifyAPI.setAccessToken(req.cookies['ms-user-code'] || '');
 
-  await spotifyAPI.getMyTopTracks({'limit': 50}).then((data) => {
+  await spotifyAPI.getMyTopTracks({ 'limit': 50, 'time_range': 'long_term' }).then((data) => {
     let responseData = [];
+    console.log(data);
     data.body.items.forEach(track => {
       responseData.push({
         'name': track.name,
@@ -21,7 +22,7 @@ export default async (req, res) => {
       });
     });
     res.status(200).json(responseData);
-  }, (err) => {
-    res.status(200).json("FAILED");
+  }, () => {
+    res.status(401).json("Invalid token");
   });
 }

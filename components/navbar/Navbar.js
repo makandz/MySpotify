@@ -16,7 +16,7 @@ export default function Navbar() {
   const [userPicture, setUserPicture] = useState('https://cdn.mkn.cx/myspotify/dev/profile.png'); // default profile photo
 
   useEffect(() => {
-    let picture = localStorage.getItem("ms-user-profilepic");
+    let picture = localStorage.getItem("ms-user-img");
     if (picture)
       setUserPicture(picture);
   }, []);

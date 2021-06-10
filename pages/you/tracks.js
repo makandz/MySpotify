@@ -1,82 +1,76 @@
+import axios from "axios";
+import { useState } from "react";
+import LoadingCard from "../../components/featured/LoadingCard";
+import TrackCard from "../../components/featured/TrackCard";
 import Navbar from "../../components/navbar/Navbar";
+import OtherLoadingCard from "../../components/other-cards/OtherLoadingCard";
+import OtherTrackCard from "../../components/other-cards/OtherTrackCard";
 
 export default function TracksPage() {
+  const [tracks, setTracks] = useState(null);
+
+  axios.get("/api/tracks").then((response) => {
+    setTracks(response.data);
+  }, (err) => {
+    console.log(err);
+  });
+
+  let featuredRender = [];
+  let otherTracks = [];
+  if (tracks === null) {
+    for (let i = 0; i < 5; i++) {
+      featuredRender.push(
+        <div className="">
+          <LoadingCard key={i} />
+        </div>
+      );
+    }
+
+    for (let i = 0; i < 20; i++) {
+      otherTracks.push(
+        <div>
+          <OtherLoadingCard key={i} />
+        </div>
+      );
+    }
+  } else {
+    tracks.slice(0, 5).forEach((track, i) => {
+      featuredRender.push(
+        <div>
+          <TrackCard songData={track} key={i} />
+        </div>
+      );
+    });
+
+    tracks.slice(5).forEach((track, i) => {
+      otherTracks.push(
+        <div>
+          <OtherTrackCard songData={track} key={i} />
+        </div>
+      );
+    });
+  }
+
   return (
     <>
       <Navbar />
       <h1 className="text-center text-4xl font-display font-bold mt-6">
         Top Tracks
       </h1>
-
-      <div class="container mx-auto pt-6">
-
-        <div className="flex gap-8 mx-auto max-w-5xl">
-          <div className="flex-1">
-            <img className="rounded shadow" src="https://i.scdn.co/image/ab67616d0000b2731017779b8f5fe0ccd77bf886" />
-            <div className="mt-2">
-              <h2 className="text-lg font-bold font-display">Crosses</h2>
-              <p>José González</p>
-              <p className="text-gray-500">Veneer</p>
-            </div>
+      <div className="container mx-auto pt-6">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="font-display text-2xl font-bold">Featured</h2>
+          <div className="grid grid-cols-5 gap-8 mx-auto mt-4">
+            {featuredRender}
           </div>
 
-          <div className="flex-1">
-            <img className="rounded shadow" src="https://i.scdn.co/image/ab67616d0000b273af149eb4002f65f83afc63c4" />
-            <div className="mt-2">
-              <h2 className="text-lg font-bold font-display mt">Who shot cupid?</h2>
-              <p>Juice WRLD</p>
-              <p className="text-gray-500">Death Race for Love</p>
-            </div>
+          <h2 className="font-display text-2xl font-bold mt-8">Everything Else</h2>
+        
+          <div className="mx-auto mt-2 grid grid-cols-3 gap-5">
+            {otherTracks}
           </div>
-
-          <div className="flex-1">
-            <img className="rounded shadow" src="https://i.scdn.co/image/ab67616d0000b273aa7c328b5066085ccd4ddb76" />
-            <div className="mt-2">
-              <h2 className="text-lg font-bold font-display mt">Mountains</h2>
-              <p>Message To Bears</p>
-            </div>
-          </div>
-
-          <div className="flex-1">
-            <img className="rounded shadow" src="https://i.scdn.co/image/ab67616d0000b273865c594e832d54eedf64c296" />
-            <div className="mt-2">
-              <h2 className="text-lg font-bold font-display mt">Flaws</h2>
-              <p>Daughter</p>
-            </div>
-          </div>
-
-          {/* <div class="flex-1 animate-pulse">
-            <div class="bg-gray-400 rounded w-full h-32"></div>
-            <div class="w-full mt-2">
-              <div class="bg-gray-400 rounded w-full h-6"></div>
-              <div class="bg-gray-400 rounded w-full h-4 mt-2"></div>
-            </div>
-          </div>
-
-          <div class="flex-1 animate-pulse">
-            <div class="bg-gray-400 rounded w-full h-32"></div>
-            <div class="w-full mt-2">
-              <div class="bg-gray-400 rounded w-full h-6"></div>
-              <div class="bg-gray-400 rounded w-full h-4 mt-2"></div>
-            </div>
-          </div>
-
-          <div class="flex-1 animate-pulse">
-            <div class="bg-gray-400 rounded w-full h-32"></div>
-            <div class="w-full mt-2">
-              <div class="bg-gray-400 rounded w-full h-6"></div>
-              <div class="bg-gray-400 rounded w-full h-4 mt-2"></div>
-            </div>
-          </div>
-
-          <div class="flex-1 animate-pulse">
-            <div class="bg-gray-400 rounded w-full h-32"></div>
-            <div class="w-full mt-2">
-              <div class="bg-gray-400 rounded w-full h-6"></div>
-              <div class="bg-gray-400 rounded w-full h-4 mt-2"></div>
-            </div>
-          </div> */}
         </div>
+
       </div>
     </>
   );
