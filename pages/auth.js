@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react"
 import Cookies from "universal-cookie"
-import config from "../config"
 import axios from "axios"
 
 export default function Auth() {
   const cookies  = new Cookies();
   const scopes = 'user-top-read user-read-recently-played';
-  const client_id = config.clientID;
+  const client_id = process.env.CLIENT_ID;
   const cookie_config = {
     path: '/',
     maxAge: 3600
