@@ -1,16 +1,9 @@
-import SpotifyWebApi from "spotify-web-api-node";
-import config from "../../config";
+import spotifyAPI from "../../backend/spotifyAPI";
 
 export default async function validateAPI(req, res) {
-  let spotifyAPI = new SpotifyWebApi({
-    clientId: config.clientID,
-    clientSecret: config.clientSecret,
-    redirectUri: config.redirectURL
-  });
+  let spotify = spotifyAPI(req.cookies['ms-user-code'] || '');
 
-  spotifyAPI.setAccessToken(req.cookies['ms-user-code'] || '');
-
-  await spotifyAPI.getMe().then((data) => {
+  await spotify.getMe().then((data) => {
     let resBody = data.body;
     res.status(200).json({
       'id': resBody.id,

@@ -5,7 +5,6 @@ import axios from "axios"
 export default function Auth() {
   const cookies  = new Cookies();
   const scopes = 'user-top-read user-read-recently-played';
-  const client_id = process.env.CLIENT_ID;
   const cookie_config = {
     path: '/',
     maxAge: 3600
@@ -15,7 +14,6 @@ export default function Auth() {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    console.log(user);
     if (user) {
       localStorage.setItem('ms-user-name', user.name);
       localStorage.setItem('ms-user-img', user.image);
@@ -50,9 +48,9 @@ export default function Auth() {
       setStatus("Redirecting you to the Spotify login..")
       window.location.href = 'https://accounts.spotify.com/authorize' +
         '?response_type=token' +
-        '&client_id=' + client_id +
+        '&client_id=' + process.env.NEXT_PUBLIC_CLIENT_ID +
         '&scope=' + encodeURIComponent(scopes) +
-        '&redirect_uri=' + encodeURIComponent('http://localhost:3000/auth');
+        '&redirect_uri=' + encodeURIComponent(process.env.NEXT_PUBLIC_REDIRECT_URL);
     }
   }, []);
 
