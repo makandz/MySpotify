@@ -1,9 +1,17 @@
-import { useEffect } from 'react'
 import 'tailwindcss/tailwind.css'
-import Navbar from '../components/navbar/Navbar'
 import Link from 'next/link'
+import Cookies from 'universal-cookie';
+import { useEffect } from 'react';
+import router from 'next/router';
 
 export default function Home() {
+  const cookies = new Cookies();
+
+  useEffect(() => {
+    if (cookies.get('ms-user-code'))
+      router.push('/auth');
+  }, []);
+
   return (
     <>
       <style jsx global>{`
@@ -12,7 +20,6 @@ export default function Home() {
         }
       `}</style>
       
-      <Navbar />
       <div className="text-center font-display mt-14">
         <h1 className="text-7xl font-extrabold">Your music <span className="text-green-900">speaks</span>.</h1>
       </div>
@@ -24,15 +31,17 @@ export default function Home() {
 
       <div className="text-center mt-5">
         <Link href="/auth" passHref>
-          <button className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
-            Sign in via Spotify
-          </button>
+          <a>
+            <button className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
+              Sign in via Spotify
+            </button>
+          </a>
         </Link>
       </div>
 
       <div className="text-center text-sm text-gray-600 mt-2">
         <p>Your privacy is important, learn more&nbsp;
-          <a href="#" className="text-blue-600 hover:text-blue-800 visited:text-purple-600">here</a>.</p>
+          <a href="/privacy" className="text-blue-600 hover:text-blue-800 visited:text-purple-600">here</a>.</p>
       </div>
 
       <div className="w-100 mt-8">

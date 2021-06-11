@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react"
-import { useRouter } from 'next/router'
-import Cookies from "universal-cookie";
-import config from "../config";
-import axios from "axios";
-import validate from "./api/validate";
+import Cookies from "universal-cookie"
+import config from "../config"
+import axios from "axios"
 
 export default function Auth() {
-  const router = useRouter();
   const cookies  = new Cookies();
   const scopes = 'user-top-read user-read-recently-played';
   const client_id = config.clientID;
@@ -33,11 +30,12 @@ export default function Auth() {
   async function validateToken() {
     await axios.get("/api/validate").then((response) => {
       setUser(response.data);
-      router.push("/you/tracks");
+      window.location.href = "/you/tracks";
       return true;
     }, () => {
       cookies.remove('ms-user-code');
-      setStatus("Invalid login token? Redirecting you home.."); // maybe redirect back to auth?
+      setStatus("Redirecting you home.."); // maybe redirect back to auth?
+      window.location.href = "/";
       return false;
     });
   }
@@ -50,7 +48,7 @@ export default function Auth() {
     } else if (cookies.get('ms-user-code')) {
       validateToken();
     } else {
-      setStatus("You're being redirected to the Spotify login..")
+      setStatus("Redirecting you to the Spotify login..")
       window.location.href = 'https://accounts.spotify.com/authorize' +
         '?response_type=token' +
         '&client_id=' + client_id +
@@ -60,6 +58,8 @@ export default function Auth() {
   }, []);
 
   return (
-    <p>{status}</p>
+    <div className="text-center mt-4">
+      <h1 className="font-display font-bold text-xl">{status}</h1>
+    </div>
   );
 }

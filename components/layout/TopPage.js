@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import LoadingCard from "../featured/LoadingCard";
-import Navbar from "../navbar/Navbar";
 import OtherLoadingCard from "../other-cards/OtherLoadingCard";
 import SlidingTabs from "../gust-ui/SlidingTabs";
 import TrackCard from "../featured/TrackCard";
 import OtherTrackCard from "../other-cards/OtherTrackCard";
 import ArtistCard from "../featured/ArtistCard";
 import OtherArtistCard from "../other-cards/OtherArtistCard";
+import router from "next/router";
 
 export default function TopPage(props) {
   const [cards, setCards] = useState(loadingCards());
@@ -25,7 +25,7 @@ export default function TopPage(props) {
 
     for (let i = 0; i < 20; i++) {
       loading.other.push(
-        <div key={i + 5}>
+        <div key={i + 4}>
           <OtherLoadingCard />
         </div>
       );
@@ -61,13 +61,15 @@ export default function TopPage(props) {
 
       setCards(loadedCards);
     }, (err) => {
-      console.log(err);
+      if (err.response.status === 401)
+        router.push('/auth');
+      else
+        router.push('/');
     });
   }, [period]);
 
   return (
     <>
-      <Navbar />
       <h1 className="text-center text-4xl font-display font-bold mt-6">
         {props.title}
       </h1>

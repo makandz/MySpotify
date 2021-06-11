@@ -1,12 +1,15 @@
+// https://tailwindui.com/components/application-ui/navigation/navbars
+
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
+import Cookies from 'universal-cookie';
 
 const navigation = [
-  { name: 'Tracks', href: '/you/tracks', current: false },
-  { name: 'Artists', href: '/you/artists', current: false },
-  { name: 'Recent', href: '#', current: false },
+  { name: 'Tracks', href: '/you/tracks' },
+  { name: 'Artists', href: '/you/artists' },
+  { name: 'Recent', href: '/you/recents' },
 ];
 
 function classNames(...classes) {
@@ -14,12 +17,17 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const cookies = new Cookies();
+
   const [userPicture, setUserPicture] = useState('https://cdn.mkn.cx/myspotify/dev/profile.png');
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     let picture = localStorage.getItem("ms-user-img");
     if (picture)
       setUserPicture(picture);
+    if (cookies.get('ms-user-code'))
+      setLoggedIn(true);
   }, []);
 
   return (
@@ -40,24 +48,21 @@ export default function Navbar() {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://cdn.mkn.cx/myspotify/dev/logo-lg.svg"
-                    alt="MySpotify logo"
-                  />
+                  <Link href={loggedIn ? '/you/tracks' : '/'} passHref>
+                    <a>
+                      <img
+                        className="h-8 w-auto"
+                        src="https://cdn.mkn.cx/myspotify/dev/logo-lg.svg"
+                        alt="MySpotify logo"
+                      />
+                    </a>
+                  </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link passHref href={item.href}>
-                        <a
-                          key={item.name}
-                          className={classNames(
-                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                            'px-3 py-2 rounded-md text-sm font-medium'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
+                      <Link passHref href={item.href} key={item.name}>
+                        <a className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
                           {item.name}
                         </a>
                       </Link>
@@ -94,22 +99,10 @@ export default function Navbar() {
                           className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                         >
                           <Menu.Item>
+                            {/* <Link> does some weird stuff here */}
                             {({ active }) => (
                               <a
-                                href="#"
-                                className={classNames(
-                                  active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700'
-                                )}
-                              >
-                                Settings
-                              </a>
-                            )}
-                          </Menu.Item>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                href="#"
+                                href="/logout"
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
                                   'block px-4 py-2 text-sm text-gray-700'
@@ -134,11 +127,7 @@ export default function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
+                  className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
                 >
                   {item.name}
                 </a>
