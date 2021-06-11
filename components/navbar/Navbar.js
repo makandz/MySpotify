@@ -1,10 +1,11 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import Link from 'next/link'
 
 const navigation = [
-  { name: 'Tracks', href: '#', current: false },
-  { name: 'Artists', href: '#', current: false },
+  { name: 'Tracks', href: '/you/tracks', current: false },
+  { name: 'Artists', href: '/you/artists', current: false },
   { name: 'Recent', href: '#', current: false },
 ];
 
@@ -13,7 +14,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const [userPicture, setUserPicture] = useState('https://cdn.mkn.cx/myspotify/dev/profile.png'); // default profile photo
+  const [userPicture, setUserPicture] = useState('https://cdn.mkn.cx/myspotify/dev/profile.png');
 
   useEffect(() => {
     let picture = localStorage.getItem("ms-user-img");
@@ -48,17 +49,18 @@ export default function Navbar() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
+                      <Link passHref href={item.href}>
+                        <a
+                          key={item.name}
+                          className={classNames(
+                            item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                            'px-3 py-2 rounded-md text-sm font-medium'
+                          )}
+                          aria-current={item.current ? 'page' : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </div>
                 </div>

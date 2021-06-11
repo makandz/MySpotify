@@ -4,12 +4,14 @@ import Navbar from '../components/navbar/Navbar'
 import Link from 'next/link'
 
 export default function Home() {
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-  }, []);
-
   return (
     <>
+      <style jsx global>{`
+        body {
+          overflow: hidden;
+        }
+      `}</style>
+      
       <Navbar />
       <div className="text-center font-display mt-14">
         <h1 className="text-7xl font-extrabold">Your music <span className="text-green-900">speaks</span>.</h1>

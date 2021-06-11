@@ -1,6 +1,6 @@
 import spotifyAPI from "../../../../backend/spotifyAPI";
 
-export default async function tracksAPI(req, res) {
+export default async function artistsAPI(req, res) {
   const { period } = req.query;
   const validPeriods = ['short_term', 'medium_term', 'long_term'];
 
@@ -9,14 +9,13 @@ export default async function tracksAPI(req, res) {
 
   let spotify = spotifyAPI(req.cookies['ms-user-code'] || '');
 
-  await spotify.getMyTopTracks({ 'limit': 50, 'time_range': period }).then((data) => {
+  await spotify.getMyTopArtists({ 'limit': 50, 'time_range': period }).then((data) => {
     let responseData = [];
-    data.body.items.forEach(track => {
+    data.body.items.forEach(artist => {
       responseData.push({
-        'name': track.name,
-        'artist': track.artists[0].name,
-        'album': track.album.name,
-        'image': track.album.images[0].url
+        'name': artist.name,
+        'image': artist.images[0].url,
+        'genre': artist.genres[0]
       });
     });
     res.status(200).json(responseData);
