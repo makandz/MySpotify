@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import Cookies from "universal-cookie"
 import axios from "axios"
+import {destroyCookie, parseCookies, setCookie} from "nookies";
 
 export default function Auth() {
-  const cookies  = new Cookies();
   const scopes = 'user-top-read user-read-recently-played';
+  const cookies = parseCookies();
   const cookie_config = {
     path: '/',
     maxAge: 3600
@@ -18,6 +18,7 @@ export default function Auth() {
       localStorage.setItem('ms-user-name', user.name);
       localStorage.setItem('ms-user-img', user.image);
     }
+
   }, [user]);
 
   /**
@@ -30,7 +31,7 @@ export default function Auth() {
       window.location.href = "/you/tracks";
       return true;
     }, () => {
-      cookies.remove('ms-user-code');
+      destroyCookie(null, 'ms-user-code');
       setStatus("Redirecting you home.."); // maybe redirect back to auth?
       window.location.href = "/";
       return false;
@@ -40,9 +41,9 @@ export default function Auth() {
   useEffect(() => {
     let token = new URLSearchParams(window.location.hash.substr(1)).get('access_token');
     if (token) {
-      cookies.set('ms-user-code', token, cookie_config);
+      setCookie(null, 'ms-user-code', token, cookie_config);
       validateToken();
-    } else if (cookies.get('ms-user-code')) {
+    } else if ({ cookies }.cookies['ms-user-code']) {
       validateToken();
     } else {
       setStatus("Redirecting you to the Spotify login..")

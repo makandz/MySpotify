@@ -7,7 +7,7 @@ export default async function tracksAPI(req, res) {
   if (!validPeriods.includes(period))
     res.status(405).json("Bad time period");
 
-  let spotify = spotifyAPI(req.cookies['ms-user-code'] || '');
+  let spotify = spotifyAPI(req);
 
   await spotify.getMyTopTracks({ 'limit': 50, 'time_range': period }).then((data) => {
     let responseData = [];

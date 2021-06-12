@@ -13,11 +13,11 @@
     "@types/react-transition-group": "^4.4.1",
     "axios": "^0.21.1",
     "next": "10.2.3",
+    "nookies": "^2.5.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "spotify-web-api-node": "^5.0.2",
-    "styled-jsx": "^3.3.2",
-    "universal-cookie": "^4.0.4"
+    "styled-jsx": "^3.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

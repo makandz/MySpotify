@@ -4,7 +4,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
-import Cookies from 'universal-cookie';
+import {parseCookies} from "nookies";
 
 const navigation = [
   { name: 'Tracks', href: '/you/tracks' },
@@ -17,7 +17,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const cookies = new Cookies();
+  const cookies = parseCookies();
 
   const [userPicture, setUserPicture] = useState('https://cdn.mkn.cx/myspotify/dev/profile.png');
   const [loggedIn, setLoggedIn] = useState(false);
@@ -26,7 +26,7 @@ export default function Navbar() {
     let picture = localStorage.getItem("ms-user-img");
     if (picture)
       setUserPicture(picture);
-    if (cookies.get('ms-user-code'))
+    if ({ cookies }.cookies['ms-user-code'])
       setLoggedIn(true);
   }, []);
 

@@ -1,7 +1,7 @@
 import spotifyAPI from "../../backend/spotifyAPI";
 
 export default async function validateAPI(req, res) {
-  let spotify = spotifyAPI(req.cookies['ms-user-code'] || '');
+  let spotify = spotifyAPI(req);
 
   await spotify.getMe().then((data) => {
     let resBody = data.body;

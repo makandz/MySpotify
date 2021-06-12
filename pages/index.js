@@ -1,15 +1,15 @@
 import 'tailwindcss/tailwind.css'
 import Link from 'next/link'
-import Cookies from 'universal-cookie';
 import { useEffect } from 'react';
 import router from 'next/router';
+import {parseCookies} from "nookies";
 
 export default function Home() {
-  const cookies = new Cookies();
+  const cookies = parseCookies();
 
   useEffect(() => {
-    if (cookies.get('ms-user-code'))
-      router.push('/auth');
+    if ({ cookies }.cookies['ms-user-code'])
+      router.push('/auth').then(() => {});
   }, []);
 
   return (

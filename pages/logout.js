@@ -1,11 +1,9 @@
 import { useEffect } from "react"
-import Cookies from "universal-cookie"
+import {destroyCookie} from "nookies";
 
 export default function LogoutPage() {
-  const cookies = new Cookies();
-
   useEffect(() => {
-    cookies.remove('ms-user-code');
+    destroyCookie(null, 'ms-user-code');
     localStorage.removeItem('ms-user-name');
     localStorage.removeItem('ms-user-img');
     window.location.href = "/";
