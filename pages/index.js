@@ -2,7 +2,7 @@ import 'tailwindcss/tailwind.css'
 import Link from 'next/link'
 import { useEffect } from 'react';
 import router from 'next/router';
-import {parseCookies} from "nookies";
+import { parseCookies } from "nookies";
 
 export default function Home() {
   const cookies = parseCookies();

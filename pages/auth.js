@@ -28,12 +28,12 @@ export default function Auth() {
   async function validateToken() {
     await axios.get("/api/validate").then((response) => {
       setUser(response.data);
-      window.location.href = "/you/tracks";
+      // window.location.href = "/you/tracks";
       return true;
     }, () => {
       destroyCookie(null, 'ms-user-code');
       setStatus("Redirecting you home.."); // maybe redirect back to auth?
-      window.location.href = "/";
+      // window.location.href = "/";
       return false;
     });
   }
