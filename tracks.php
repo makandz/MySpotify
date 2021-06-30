@@ -18,7 +18,7 @@
     <div class="row">
         <?php 
             $i = 0;
-            foreach (getTopSongs("short_term", 48) as $a) { 
+            foreach (getTopSongs("short_term", 100) as $a) { 
                 $i++; ?>
                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
@@ -43,7 +43,7 @@
     <div class="row">
         <?php 
             $i = 0;
-            foreach (getTopSongs("medium_term", 48) as $a) { 
+            foreach (getTopSongs("medium_term", 100) as $a) { 
                 $i++; ?>
                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
@@ -68,7 +68,7 @@
     <div class="row">
         <?php 
             $i = 0;
-            foreach (getTopSongs("long_term", 48) as $a) { 
+            foreach (getTopSongs("long_term", 100) as $a) { 
                 $i++; ?>
                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
                     <div class="card mb-3">
