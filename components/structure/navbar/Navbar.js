@@ -47,15 +47,9 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
-                  <Link href={loggedIn ? '/you/tracks' : '/'} passHref>
-                    <a>
-                      <img
-                        className="h-8 w-auto"
-                        src="https://cdn.mkn.cx/myspotify/dev/logo-lg.svg"
-                        alt="MySpotify logo"
-                      />
-                    </a>
+                <div className="flex-shrink-0 flex items-center text-white font-display font-bold">
+                  <Link href="/">
+                    <a>MySpotify</a>
                   </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">

@@ -9,11 +9,11 @@ function SlidingTabs({
   ...newProps
 }) {
   const [activeTab, setActiveTab] = useState(0)
-  let finalClass = `${className} w-full flex sm:border-b sm:border-gray-300 relative flex-col sm:flex-row`
+  let finalClass = `${className} w-full flex border-b border-gray-300 relative flex-row`
   let tabClassName =
-    " flex-1 sm:text-center font-medium pb-3 cursor-pointer hover:text-blue-400"
+    " flex-1 text-center font-medium pb-3 cursor-pointer hover:text-blue-400"
   let sliderClassName =
-    "hidden sm:block absolute bottom-0 left-0 h-1 bg-blue-400 transition-transform duration-300 ease-out"
+    "block absolute bottom-0 left-0 h-1 bg-blue-400 transition-transform duration-300 ease-out"
   const numTabs = tabs.length
   if (numTabs === 1) sliderClassName += " w-full"
   else if (numTabs === 2) sliderClassName += " w-1/2"

@@ -12,11 +12,18 @@ export default async function tracksAPI(req, res) {
   await spotify.getMyTopTracks({ 'limit': 50, 'time_range': period }).then((data) => {
     let responseData = [];
     data.body.items.forEach(track => {
+      /**
+       * @param track.name
+       * @param track.artists
+       * @param track.album
+       * @param track.external_url.spotify
+       */
       responseData.push({
         'name': track.name,
         'artist': track.artists[0].name,
         'album': track.album.name,
-        'image': track.album.images[0].url
+        'image': track.album.images[0].url,
+        'href': track.album.external_urls.spotify
       });
     });
     res.status(200).json(responseData);

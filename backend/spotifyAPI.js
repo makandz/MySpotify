@@ -1,5 +1,5 @@
 import SpotifyWebApi from "spotify-web-api-node";
-import {parseCookies} from "nookies";
+import { parseCookies } from "nookies";
 
 export default function spotifyAPI(req) {
   const cookies = parseCookies({ req });
