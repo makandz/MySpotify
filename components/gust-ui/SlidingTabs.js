@@ -35,8 +35,10 @@ function SlidingTabs({
         key={`${value}-${index}`}
         className={`${tabClassName} ${activeTab === index && "text-blue-400"}`}
         onClick={() => {
-          setActiveTab(index)
-          onChange(value)
+          if (activeTab !== index) {
+            setActiveTab(index);
+            onChange(value);
+          }
         }}
       >
         {icon && (

@@ -37,7 +37,10 @@ export default function Navbar() {
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button
+                  className="inline-flex items-center justify-center p-2 rounded-md text-gray-400
+                    hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                >
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -56,7 +59,10 @@ export default function Navbar() {
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <Link passHref href={item.href} key={item.name}>
-                        <a className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'>
+                        <a
+                          className='text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm
+                            font-medium'
+                        >
                           {item.name}
                         </a>
                       </Link>
@@ -69,7 +75,10 @@ export default function Navbar() {
                   {({ open }) => (
                     <>
                       <div>
-                        <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <Menu.Button
+                          className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2
+                          focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                        >
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
@@ -90,7 +99,8 @@ export default function Navbar() {
                       >
                         <Menu.Items
                           static
-                          className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                          className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white
+                            ring-1 ring-black ring-opacity-5 focus:outline-none"
                         >
                           <Menu.Item>
                             {/* <Link> does some weird stuff here */}
@@ -121,7 +131,8 @@ export default function Navbar() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium'
+                  className='text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base
+                    font-medium'
                 >
                   {item.name}
                 </a>
