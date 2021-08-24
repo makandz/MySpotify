@@ -1,36 +1,37 @@
-# mySpotify - Your Spotify Stats
-Over the past few weeks I've been listening to some music, and was interested in which music I've listened to the most. I checked out Spotify's API and noticed there is a way the information, so I went ahead and worked on a program to get the stats for my account and list them out in the most elegant way possible.
+# MySpotify
+![](https://img.shields.io/badge/license-MIT%20License-blue?style=flat-square)
 
-## Live Preview
-You can see a live preview of the website at https://mySpotify.pw.
+## Description
+A Next.js (React.js) with a Node.js backend that makes use of the Spotify API to show users their
+top tracks and artists within various time periods. Project was created mainly to play around with
+the various API endpoints while displaying the information on a modern and mobile compatible frontend.
 
-## What does this do?
-It prompts whoever that is visiting the website to authenticate using their Spotify account. Upon them logging into their account a token is sent to the website and saved as a cookie on the users computer. The token allows the website to request information about the users top songs and artists in a period of time, and the stats are printed on a page with images and links to visit the pages.
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Screenshots](#screenshots)
 
-## How do I get it running?
-The first step is to head over to the [Spotify Dashboard](https://beta.developer.spotify.com/dashboard/) where you can create a new app. You're then given a client and secret token. You can add those including the URL of your website inside of [models/configuration.php](https://github.com/MastaCoder/mySpotify/blob/master/models/configuration.php). So an example of how the file will look like is below:
+## Installation
+1. Clone repository to local environment.
+2. Install all dependencies with `npm install`.
+3. Grab a Spotify API key at the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/applications)
+   and add the info to .env.sample.
+4. Rename .env.sample to .env or .env.local.
+5. Run Next.js project with `npm run dev`.
 
-```php
-<?php
+## Usage
+You can visit the website at [localhost:3000](http://localhost:3000). Click the button to login with
+your Spotify account and that's all!
 
-$_GLOBAL = array(
-    'client' => "37c9b2d96x0d47e3b14vef163020zxf9",
-    'secret' => "c6a5c0f2122x4b1cab83b6af0de42311",
-    'redirect' => "http://localhost/mySpotify/auth.php"
-)
+Spotify's API has changed since this project first started. You can only login with your own Spotify
+account that made the key if you *do not have a quota extension*. You can read more about it at this
+[Spotify blog post](https://developer.spotify.com/community/news/2021/05/27/improving-the-developer-and-user-experience-for-third-party-apps/).
 
-?>
-```
-
-The website also uses [Jwilsson's PHP Spotify API Library](https://github.com/jwilsson/spotify-web-api-php), you'll also need to install it using [Composer](https://getcomposer.org/) with the command below:
-
-```
-composer require jwilsson/spotify-web-api-php
-```
-
-Upon getting that done you're all set to simply login and it should do it's work, enjoy
+## License
+This project is covered under the MIT License.
 
 ## Screenshots
-![image](https://makan.bz/shr/1546294954.jpg)
-![image](https://makan.bz/shr/1546294865.png)
-![image](https://makan.bz/shr/1546294938.png)
+![img](https://u.mkn.cx/4/ms2.png)
+
+![img](https://u.mkn.cx/4/ms5.png)
