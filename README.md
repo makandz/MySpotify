@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MySpotify
+![](https://img.shields.io/badge/license-MIT%20License-blue?style=flat-square)
 
-## Getting Started
+## Description
+A Next.js (React.js) with a Node.js backend that makes use of the Spotify API to show users their
+top tracks and artists within various time periods. Project was created mainly to play around with
+the various API endpoints while displaying the information on a modern and mobile compatible frontend.
 
-First, run the development server:
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Screenshots](#screenshots)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Installation
+1. Clone repository to local environment.
+2. Install all dependencies with `npm install`.
+3. Grab a Spotify API key at the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/applications)
+   and add the info to .env.sample.
+4. Rename .env.sample to .env or .env.local.
+5. Run Next.js project with `npm run dev`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
+You can visit the website at [localhost:3000](http://localhost:3000). Click the button to login with
+your Spotify account and that's all!
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Spotify's API has changed since this project first started. You can only login with your own Spotify
+account that made the key if you *do not have a quota extension*. You can read more about it at this
+[Spotify blog post](https://developer.spotify.com/community/news/2021/05/27/improving-the-developer-and-user-experience-for-third-party-apps/).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## License
+This project is covered under the MIT License.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Screenshots
+![img](https://u.mkn.cx/4/ms2.png)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![img](https://u.mkn.cx/4/ms5.png)
