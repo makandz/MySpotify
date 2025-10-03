@@ -1,24 +1,32 @@
 {
-  "name": "myspotify",
-  "version": "3.0.0",
+  "name": "newtunes",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.2.0",
-    "@heroicons/react": "^1.0.1",
-    "@types/react-transition-group": "^4.4.1",
-    "autoprefixer": "^10.3.2",
-    "axios": "^0.21.2",
-    "next": "12.1.0",
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
+    "axios": "^1.12.2",
+    "next": "15.5.4",
     "nookies": "^2.5.2",
-    "postcss": "^8.3.6",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "spotify-web-api-node": "^5.0.2",
-    "tailwindcss": "^2.2.7"
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "spotify-web-api-node": "^5.0.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
