@@ -47,9 +47,9 @@ export default function TopPage(props) {
           loadedCards.featured.push(
             <div key={i}>
               {props.type === "tracks" ? (
-                <TrackCard songData={item} />
+                <TrackCard songData={item} rank={i + 1} />
               ) : (
-                <ArtistCard artistData={item} />
+                <ArtistCard artistData={item} rank={i + 1} />
               )}
             </div>
           );
@@ -57,11 +57,11 @@ export default function TopPage(props) {
 
         response.data.slice(6).forEach((item, i) => {
           loadedCards.other.push(
-            <div key={i + 5}>
+            <div key={i + 6}>
               {props.type === "tracks" ? (
-                <OtherTrackCard songData={item} />
+                <OtherTrackCard songData={item} rank={i + 7} />
               ) : (
-                <OtherArtistCard artistData={item} />
+                <OtherArtistCard artistData={item} rank={i + 7} />
               )}
             </div>
           );
@@ -105,7 +105,7 @@ export default function TopPage(props) {
             {cards.featured}
           </div>
 
-          <div className="mx-auto grid xs:grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mx-auto grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 xl:grid-cols-4">
             {cards.other}
           </div>
         </div>

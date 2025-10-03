@@ -13,21 +13,15 @@ export default function TrackCard(props) {
           className="text-lg font-bold font-display truncate"
           title={props.songData.name}
         >
-          {props.songData.name}
+          {`${props.rank}. ${props.songData.name}`}
         </h2>
-        <p
-          className="truncate"
-          title={props.songData.artist}
-        >
+        <p className="truncate" title={props.songData.artist}>
           {props.songData.artist}
         </p>
-        <p
-          className="text-gray-500 truncate"
-          title={props.songData.album}
-        >
+        <p className="text-gray-500 truncate" title={props.songData.album}>
           {props.songData.album}
         </p>
       </div>
     </>
-  )
+  );
 }

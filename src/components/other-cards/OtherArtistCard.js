@@ -1,6 +1,6 @@
 export default function OtherArtistCard(props) {
   return (
-    <div className="w-100 grid grid-cols-12">
+    <div className="w-full grid grid-cols-12">
       <div className="col-span-2 sm:col-span-3">
         <a href={props.artistData.href}>
           <img
@@ -10,7 +10,7 @@ export default function OtherArtistCard(props) {
           />
         </a>
       </div>
-      <div className="px-4 col-span-9 my-auto">
+      <div className="px-4 pt-0 col-span-10 sm:col-span-9 my-auto min-w-0">
         <h2
           className="font-display font-bold text-lg truncate"
           title={props.artistData.name}
@@ -25,5 +25,5 @@ export default function OtherArtistCard(props) {
         </p>
       </div>
     </div>
-  )
+  );
 }
