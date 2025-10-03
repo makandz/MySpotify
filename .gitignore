@@ -36,3 +36,5 @@ yarn-error.log*
 
 # other
 .idea/
+.env
+tsconfig.tsbuildinfo
