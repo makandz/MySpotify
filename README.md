@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NewTunes - Your Spotify Stats
 
-## Getting Started
+Discover your top tracks, artists, and recent listens from Spotify. Filter by last month, six months, or all time and share your profile with friends. No server-side storage - your access token stays in a cookie on your device.
 
-First, run the development server:
+## Features
+
+- Top tracks and artists with quick time-range filters (4 weeks, 6 months, all-time)
+- Recent listens view
+- Clean, responsive UI built with Tailwind
+- Private by default — no database, no persistent user storage
+
+## Tech Stack
+
+- Next.js 15 (App Router)
+- React 19 + TypeScript
+- Tailwind CSS v4
+- Headless UI + Heroicons
+- Spotify Web API (implicit grant flow)
+
+## Quick Start
+
+1. Prerequisites
+
+- Node.js 22+ and npm
+- A Spotify Developer application (https://developer.spotify.com/dashboard)
+
+2. Configure your Spotify app
+
+- In your Spotify app settings, add a redirect URI for development: `http://localhost:3000/auth`
+- Scopes required: `user-top-read user-read-recently-played`
+
+3. Environment variables
+
+Create a `.env.local` in the project root:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Spotify app credentials
+NEXT_PUBLIC_CLIENT_ID=your_spotify_client_id
+CLIENT_SECRET=your_spotify_client_secret
+
+# Where Spotify should send users after auth (must match your app settings)
+# For local dev you can omit this — the app defaults to window.origin + /auth
+NEXT_PUBLIC_REDIRECT_URL=http://localhost:3000/auth
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Notes:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `NEXT_PUBLIC_CLIENT_ID` and `NEXT_PUBLIC_REDIRECT_URL` are used by the client during the implicit grant redirect.
+- `CLIENT_SECRET` is only needed when constructing the SDK server-side; no refresh tokens are stored.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Install and run
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm install
+npm run dev
+# Visit http://localhost:3000
+```
