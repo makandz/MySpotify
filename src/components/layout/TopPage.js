@@ -1,5 +1,7 @@
+"use client";
+
 import axios from "axios";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ArtistCard from "../featured/ArtistCard";
 import LoadingCard from "../featured/LoadingCard";
@@ -12,6 +14,7 @@ import OtherTrackCard from "../other-cards/OtherTrackCard";
 export default function TopPage(props) {
   const [cards, setCards] = useState(loadingCards());
   const [period, setPeriod] = useState("short_term");
+  const router = useRouter();
 
   function loadingCards() {
     let loading = { featured: [], other: [] };

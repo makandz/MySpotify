@@ -1,4 +1,3 @@
-// app/components/Navbar.tsx (App Router client component)
 "use client";
 
 import { Disclosure, Menu, Transition } from "@headlessui/react";
