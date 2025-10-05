@@ -26,7 +26,7 @@ function deleteCookie(name: string) {
 
 export default function AuthPage() {
   const router = useRouter();
-  const [status, setStatus] = useState("Just a second..");
+  const [status, setStatus] = useState("Just a moment..");
   const [user, setUser] = useState<User | null>(null);
 
   // Persist user info for later use in the app
@@ -47,7 +47,7 @@ export default function AuthPage() {
       return true;
     } catch {
       deleteCookie("ms-user-code");
-      setStatus("Redirecting you home..");
+      setStatus("Taking you home...");
       router.replace("/");
       return false;
     }
@@ -78,7 +78,7 @@ export default function AuthPage() {
     const redirectUri =
       process.env.NEXT_PUBLIC_REDIRECT_URL ?? `${window.location.origin}/auth`;
 
-    setStatus("Redirecting you to the Spotify login..");
+    setStatus("Taking you to Spotify...");
     const authorizeUrl =
       "https://accounts.spotify.com/authorize" +
       `?response_type=token` +
@@ -90,8 +90,74 @@ export default function AuthPage() {
   }, [validateToken]); // run once on mount
 
   return (
-    <div className="text-center mt-4">
-      <h1 className="font-display font-bold text-xl">{status}</h1>
+    <div className="flex items-center justify-center py-16 px-6">
+      {/* Left: animated loader */}
+      <div className="mr-6 h-12 w-12 flex-shrink-0">
+        <div className="loader" />
+      </div>
+
+      {/* Right: text */}
+      <div className="text-left">
+        <h1 className="font-display text-2xl sm:text-3xl font-bold text-gray-900">
+          {status}
+        </h1>
+        <p className="mt-1 text-base text-gray-600">
+          This only takes a few seconds.
+        </p>
+      </div>
+
+      <style jsx>{`
+        .loader {
+          width: 40px;
+          aspect-ratio: 1;
+          --c: linear-gradient(#000 0 0); /* gray-400 to match your cards */
+          --r1: radial-gradient(farthest-side at bottom, #000 93%, #0000);
+          --r2: radial-gradient(farthest-side at top, #000 93%, #0000);
+          background: var(--c), var(--r1), var(--r2), var(--c), var(--r1),
+            var(--r2), var(--c), var(--r1), var(--r2);
+          background-repeat: no-repeat;
+          animation: bars 1s infinite alternate;
+        }
+
+        @keyframes bars {
+          0%,
+          25% {
+            background-size: 8px 0, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px,
+              8px 0, 8px 4px, 8px 4px;
+            background-position: 0 50%, 0 calc(50% - 2px), 0 calc(50% + 2px),
+              50% 50%, 50% calc(50% - 2px), 50% calc(50% + 2px), 100% 50%,
+              100% calc(50% - 2px), 100% calc(50% + 2px);
+          }
+          50% {
+            background-size: 8px 100%, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px,
+              8px 0, 8px 4px, 8px 4px;
+            background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px),
+              50% 50%, 50% calc(50% - 2px), 50% calc(50% + 2px), 100% 50%,
+              100% calc(50% - 2px), 100% calc(50% + 2px);
+          }
+          75% {
+            background-size: 8px 100%, 8px 4px, 8px 4px, 8px 100%, 8px 4px,
+              8px 4px, 8px 0, 8px 4px, 8px 4px;
+            background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px),
+              50% 50%, 50% calc(0% - 2px), 50% calc(100% + 2px), 100% 50%,
+              100% calc(50% - 2px), 100% calc(50% + 2px);
+          }
+          95%,
+          100% {
+            background-size: 8px 100%, 8px 4px, 8px 4px, 8px 100%, 8px 4px,
+              8px 4px, 8px 100%, 8px 4px, 8px 4px;
+            background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px),
+              50% 50%, 50% calc(0% - 2px), 50% calc(100% + 2px), 100% 50%,
+              100% calc(0% - 2px), 100% calc(100% + 2px);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .loader {
+            animation: none;
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -79,6 +79,9 @@ export default function Home() {
 
           {/* Text block */}
           <div>
+            <span className="inline-block mb-2 text-[11px] font-semibold text-white bg-amber-600 px-2 py-0.5 rounded-full uppercase tracking-wide">
+              Coming Soon
+            </span>
             <h2 className="font-display text-3xl sm:text-4xl font-bold">
               Share with friends in one click
             </h2>
