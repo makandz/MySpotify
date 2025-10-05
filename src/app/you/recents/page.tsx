@@ -1,4 +1,3 @@
-// app/you/recents/page.tsx
 "use client";
 
 import OtherLoadingCard from "@/components/other-cards/OtherLoadingCard";

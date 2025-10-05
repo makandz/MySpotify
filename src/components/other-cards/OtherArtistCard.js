@@ -15,7 +15,7 @@ export default function OtherArtistCard(props) {
           className="font-display font-bold text-lg truncate"
           title={props.artistData.name}
         >
-          {props.artistData.name}
+          {props.rank}. {props.artistData.name}
         </h2>
         <p
           className="text-gray-500 truncate capitalize"

@@ -1,4 +1,3 @@
-// app/auth/page.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
