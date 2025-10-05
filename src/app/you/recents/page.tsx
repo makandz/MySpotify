@@ -13,7 +13,7 @@ export default function RecentsPage() {
 
   function getLoadingCards() {
     const loading: JSX.Element[] = [];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 50; i++) {
       loading.push(
         <div key={`loading-${i}`}>
           <OtherLoadingCard />
